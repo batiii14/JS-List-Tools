@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!--
+      Lab 3
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Change to Switch Case </title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         List Tools
+      </h1>
+   </header>
+
+   <article>
+      <div id="results">
+         <ul>
+            <li id="item1"></li>
+            <li id="item2"></li>
+            <li id="item3"></li>
+            <li id="item4"></li>
+            <li id="item5"></li>
+         </ul>
+         <p id="resultsExpl"></p>
+      </div>
+      <form>
+         <fieldset>
+            <label for="toolBox" id="placeLabel">
+               Input any tool name, and click Submit:
+            </label>
+            <input type="text" id="toolBox" />
+         </fieldset>
+         <fieldset>
+            <button type="button" id="button">Submit</button>
+            <button type="button" id="remove" onclick="rmvAll();">Remove All</button>
+         </fieldset>
+      </form>
+   </article>
+   <script>
+      var i = 1; // counter variable
+      var listItem = "";
+      // function to add input to list
+      function processInput() {
+         
+         
+         var keepr=document.getElementById("toolBox").value;
+            document.getElementById("item"+i).innerHTML=keepr;
+
+         i++
+
+      }
+
+      function rmvAll(){
+         
+         for(var i=5;i>=0;i--){
+            document.getElementById('item'+i).innerHTML=' ';
+         }
+      }
+
+      // add event listener to Submit button
+      var btn = document.getElementById("button");
+      if (btn.addEventListener) {
+         btn.addEventListener("click", processInput, false);
+      }
+      else if (btn.attachEvent) {
+         btn.attachEvent("onclick", processInput);
+      }
+
+      
+   </script>
+</body>
+
+</html>
